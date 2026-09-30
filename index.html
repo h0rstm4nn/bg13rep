@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wiederholungstutorium – Grundlagen der Programmierung mit Python</title>
+<style>
+:root{--ink:#192639;--muted:#526174;--accent:#235d91;--line:#d9e2eb;--light:#f3f7fb;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);margin:0;background:#eef2f6}
+.page{max-width:940px;margin:36px auto;background:white;padding:52px 65px;box-shadow:0 8px 30px #142b4217}header{padding-bottom:20px;border-bottom:3px solid var(--accent)}h1{font-size:2.1rem;line-height:1.22;letter-spacing:-.04em;margin:0 0 10px}h2{font-size:1.55rem;margin:0 0 13px;color:#1d4e7a}h3{font-size:1.03rem;margin:24px 0 7px;color:#193b5d}section{padding:35px 0 22px;border-bottom:1px solid var(--line);break-inside:auto}p{margin:8px 0 14px}ul,ol{padding-left:24px}li{margin:3px 0}.meta{color:var(--muted);font-size:.95rem}.intro{background:var(--light);border-left:4px solid var(--accent);padding:15px 18px;margin:21px 0}.mini{font-weight:650;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;font-size:.73rem;margin-bottom:8px}.task{margin:21px 0 0;padding:14px 17px;border:1px solid var(--line);border-radius:6px;break-inside:avoid-page}.task h3{margin:0 0 7px;color:var(--ink)}.task p:last-child{margin-bottom:0}pre{background:#172638;color:#f3f7fb;border-radius:6px;padding:14px 18px;overflow:auto;line-height:1.5;font:14px/1.5 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;margin:11px 0 15px;white-space:pre}code{font:0.92em ui-monospace,Consolas,monospace;background:#edf2f7;padding:1px 4px;border-radius:3px}pre code{font:inherit;background:none;padding:0;color:inherit}table{width:100%;border-collapse:collapse;margin:12px 0 16px}th,td{border:1px solid var(--line);text-align:left;padding:7px 10px}th{background:var(--light)}.diagram{width:75%;margin:17px auto;border:2px solid #3d566b;text-align:center}.diagram div{padding:7px 10px;border-bottom:1px solid #3d566b}.diagram div:last-child{border:0}.house{max-width:320px;margin:12px auto;display:block}.checklist{list-style:none;padding:0}.checklist li{margin:9px 0}.checklist label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}.checklist input{margin-top:6px;width:17px;height:17px;accent-color:var(--accent);flex-shrink:0}.toc a{color:#235d91;text-decoration:none}.toc a:hover{text-decoration:underline}.toc{columns:2}.printnote{font-size:.8rem;color:var(--muted);margin-top:28px}.task-number{color:var(--accent)}a{color:#235d91}@media(max-width:700px){.page{margin:0;padding:25px 19px}.toc{columns:1}.diagram{width:100%}h1{font-size:1.75rem}section{padding-top:28px}}@media print{@page{size:A4;margin:16mm}body{background:white;font-size:10.5pt}.page{margin:0;max-width:none;padding:0;box-shadow:none}h1{font-size:23pt}h2{font-size:17pt}section{padding-top:21px}.task{break-inside:avoid}pre{background:#f2f4f6!important;color:#16283b!important;border:1px solid #ccd5dd;white-space:pre-wrap;font-size:9pt;print-color-adjust:exact;-webkit-print-color-adjust:exact}.intro,th{print-color-adjust:exact;-webkit-print-color-adjust:exact}.toc a{color:inherit}.printnote{display:none}}
+</style>
+</head>
+<body>
+<main class="page">
+<header>
+<p class="mini">Informatik · Wiederholung</p>
+<h1>Wiederholungstutorium: Grundlagen der Programmierung mit Python</h1>
+<p class="meta"><strong>Themen:</strong> Variablen · Ausgabe · Datentypen · Eingaben · Struktogramme · Verzweigungen · Listen · Turtle</p>
+<p><strong>Ziel:</strong> Du wiederholst die wichtigsten Grundlagen der Programmierung mit Python. Zu jedem Thema findest du eine kurze Erklärung und anschließend Übungen, mit denen du dein Wissen überprüfen und anwenden kannst.</p>
+<p>Bearbeite die Aufgaben möglichst selbstständig. Teste deine Programme in Python und korrigiere auftretende Fehler.</p>
+</header>
+<nav aria-label="Inhalt"><h3>Inhalt</h3><ol class="toc"><li><a href="#variablen">Variablen</a></li><li><a href="#print">Ausgabe mit print()</a></li><li><a href="#datentypen">Datentypen und Casting</a></li><li><a href="#input">Eingaben mit input()</a></li><li><a href="#struktogramme">Struktogramme</a></li><li><a href="#verzweigungen">Bedingte Verzweigungen</a></li><li><a href="#listen">Listen</a></li><li><a href="#turtle">Zeichnen mit Turtle</a></li><li><a href="#transfer">Transferaufgabe</a></li></ol></nav>
+<section id="variablen"><h2>1. Variablen</h2><p class="mini">Kurz erklärt</p><p>Eine Variable speichert einen Wert unter einem bestimmten Namen. Der Wert kann im Laufe des Programms verändert werden.</p><pre><code>preis = 20
+menge = 3
+
+gesamtpreis = preis * menge</code></pre><p>Mit dem Gleichheitszeichen <code>=</code> wird einer Variable ein Wert zugewiesen. Bei einer erneuten Zuweisung wird der bisherige Wert überschrieben.</p>
+<div class="task"><h3>Übung 1.1 – Variablen anlegen</h3><p>Erstelle ein Python-Programm, das folgende Informationen in jeweils einer eigenen Variable speichert:</p><ul><li>Deinen Vornamen</li><li>Dein Alter</li><li>Deine Körpergröße in Metern</li><li>Die Information, ob du einen Führerschein besitzt (<code>True</code> oder <code>False</code>)</li></ul></div>
+<div class="task"><h3>Übung 1.2 – Werte verändern</h3><p>Betrachte den folgenden Programmcode:</p><pre><code>kontostand = 100
+kontostand = kontostand + 50
+kontostand = kontostand - 30
+kontostand = kontostand * 2</code></pre><p>Welchen Wert enthält die Variable <code>kontostand</code> nach jeder einzelnen Zeile? Notiere die Ergebnisse, bevor du das Programm ausführst.</p></div>
+<div class="task"><h3>Übung 1.3 – Rechnen mit Variablen</h3><p>Ein Onlineshop verkauft einen Artikel für 29,90 €. Ein Kunde bestellt vier Stück.</p><p>Schreibe ein Programm, das den Einzelpreis und die Bestellmenge in Variablen speichert und daraus den Gesamtpreis berechnet. Speichere auch das Ergebnis in einer eigenen Variable.</p></div></section>
+<section id="print"><h2>2. Ausgabe mit <code>print()</code></h2><p class="mini">Kurz erklärt</p><p>Mit <code>print()</code> werden Texte, Variablen und Berechnungsergebnisse ausgegeben. Texte stehen in Anführungszeichen.</p><pre><code>name = "Alex"
+alter = 17
+
+print("Hallo Welt!")
+print(name)
+print("Alter:", alter)
+print(f"{name} ist {alter} Jahre alt.")</code></pre><p>Der letzte Befehl verwendet einen <strong>f-String</strong>. Die Variablen innerhalb der geschweiften Klammern werden durch ihre Werte ersetzt.</p>
+<div class="task"><h3>Übung 2.1 – Ausgabe vorhersagen</h3><p>Welche Ausgabe erzeugt das folgende Programm? Schreibe sie exakt auf.</p><pre><code>vorname = "Lisa"
+punkte = 80
+
+print("Hallo", vorname)
+print("Deine Punktzahl:")
+print(punkte)
+print(f"Du hast {punkte + 10} Punkte erreicht.")</code></pre></div>
+<div class="task"><h3>Übung 2.2 – Einen Steckbrief ausgeben</h3><p>Verwende die Variablen aus Übung 1.1 und gib einen Steckbrief aus. Nutze dafür ausschließlich f-Strings.</p><p>Die Ausgabe könnte beispielsweise so aussehen:</p><pre><code>Name: Max
+Alter: 17 Jahre
+Körpergröße: 1.82 m
+Führerschein vorhanden: False</code></pre></div>
+<div class="task"><h3>Übung 2.3 – Fehlersuche</h3><p>Das folgende Programm soll den Preis eines Produkts ausgeben. Es enthält zwei Fehler. Finde und korrigiere sie.</p><pre><code>produkt = "Tastatur"
+preis = 49.99
+
+print(Produkt)
+print(f"Preis: {preis Euro")</code></pre></div></section>
+<section id="datentypen"><h2>3. Datentypen und Casting</h2><p class="mini">Kurz erklärt</p><p>Python unterscheidet verschiedene Datentypen.</p><table><thead><tr><th>Datentyp</th><th>Bedeutung</th><th>Beispiel</th></tr></thead><tbody><tr><td><code>str</code></td><td>Text (String)</td><td><code>"Hallo"</code></td></tr><tr><td><code>int</code></td><td>Ganze Zahl (Integer)</td><td><code>42</code></td></tr><tr><td><code>float</code></td><td>Kommazahl (Float)</td><td><code>3.14</code></td></tr><tr><td><code>bool</code></td><td>Wahrheitswert (Boolean)</td><td><code>True</code></td></tr></tbody></table><p>Mit <strong>Casting</strong> wird ein Wert in einen anderen Datentyp umgewandelt.</p><pre><code>zahl = "25"
+zahl = int(zahl)
+print(zahl + 5)</code></pre><p>Aus dem Text <code>"25"</code> wird die ganze Zahl <code>25</code>. Nun kann mit ihr gerechnet werden. Wichtige Umwandlungen sind <code>int()</code>, <code>float()</code> und <code>str()</code>.</p>
+<div class="task"><h3>Übung 3.1 – Datentypen bestimmen</h3><p>Bestimme die Datentypen der folgenden Werte, ohne Python auszuführen.</p><table><thead><tr><th>Wert</th><th>Datentyp</th></tr></thead><tbody><tr><td><code>"125"</code></td><td></td></tr><tr><td><code>125</code></td><td></td></tr><tr><td><code>12.5</code></td><td></td></tr><tr><td><code>False</code></td><td></td></tr><tr><td><code>"True"</code></td><td></td></tr><tr><td><code>-8</code></td><td></td></tr></tbody></table></div>
+<div class="task"><h3>Übung 3.2 – Casting anwenden</h3><p>Welche Ausgabe erzeugt das folgende Programm?</p><pre><code>a = "10"
+b = "20"
+
+print(a + b)
+print(int(a) + int(b))
+print(float(a) / 4)</code></pre><p>Erkläre anschließend, weshalb die ersten beiden Ausgaben unterschiedlich sind.</p></div>
+<div class="task"><h3>Übung 3.3 – Fehler korrigieren</h3><p>Das folgende Programm soll zwei Zahlen addieren. Es funktioniert jedoch nicht wie vorgesehen.</p><pre><code>zahl1 = "15"
+zahl2 = "7"
+
+ergebnis = zahl1 + zahl2
+print(f"Die Summe beträgt {ergebnis}.")</code></pre><p>Verändere das Programm so, dass tatsächlich die Summe der beiden Zahlen ausgegeben wird.</p></div></section>
+<section id="input"><h2>4. Eingaben mit <code>input()</code></h2><p class="mini">Kurz erklärt</p><p>Mit <code>input()</code> kann ein Programm Informationen vom Benutzer entgegennehmen.</p><pre><code>name = input("Wie heißt du? ")
+print(f"Hallo {name}!")</code></pre><p><strong>Wichtig:</strong> <code>input()</code> liefert immer einen String zurück. Soll mit einer eingegebenen Zahl gerechnet werden, muss diese zunächst umgewandelt werden.</p><pre><code>alter = int(input("Wie alt bist du? "))
+print(f"In fünf Jahren bist du {alter + 5} Jahre alt.")</code></pre>
+<div class="task"><h3>Übung 4.1 – Persönliche Begrüßung</h3><p>Schreibe ein Programm, das den Benutzer nach seinem Vornamen und seinem Wohnort fragt. Anschließend soll beispielsweise folgende Ausgabe erscheinen:</p><pre><code>Hallo Lisa!
+Du wohnst in Rinteln.</code></pre></div>
+<div class="task"><h3>Übung 4.2 – Rechteck berechnen</h3><p>Schreibe ein Programm, das den Benutzer nach der Länge und Breite eines Rechtecks fragt. Das Programm soll anschließend den Flächeninhalt berechnen und ausgeben. Verwende <code>float()</code>, damit auch Dezimalzahlen eingegeben werden können.</p></div>
+<div class="task"><h3>Übung 4.3 – Den Fehler verstehen</h3><p>Ein Schüler schreibt folgendes Programm:</p><pre><code>alter = input("Wie alt bist du? ")
+neues_alter = alter + 10
+print(neues_alter)</code></pre><p>Das Programm verursacht einen Fehler. Erkläre die Ursache und korrigiere den Programmcode.</p></div></section>
+<section id="struktogramme"><h2>5. Struktogramme</h2><p class="mini">Kurz erklärt</p><p>Struktogramme (Nassi-Shneiderman-Diagramme) stellen den Ablauf eines Programms grafisch dar. Sie helfen dabei, einen Algorithmus zu planen, bevor er in Python umgesetzt wird.</p><p>Drei wichtige Grundelemente sind:</p><ul><li><strong>Sequenz:</strong> Anweisungen werden nacheinander ausgeführt.</li><li><strong>Auswahl:</strong> Abhängig von einer Bedingung werden unterschiedliche Anweisungen ausgeführt.</li><li><strong>Wiederholung:</strong> Anweisungen werden mehrfach ausgeführt.</li></ul><p>Eine Sequenz könnte beispielsweise so aussehen:</p><div class="diagram" role="img" aria-label="Sequenz aus vier Schritten: Preis eingeben; Menge eingeben; Gesamtpreis berechnen; Gesamtpreis ausgeben"><div>Preis eingeben</div><div>Menge eingeben</div><div>Gesamtpreis = Preis × Menge</div><div>Gesamtpreis ausgeben</div></div><p>Für die folgenden Übungen verwenden wir den Editor <a href="https://ddi.education/struktog/" target="_blank" rel="noopener">Struktog der TU Dresden</a>.</p>
+<div class="task"><h3>Übung 5.1 – Sequenz modellieren</h3><p>Erstelle ein Struktogramm für folgenden Ablauf:</p><p>Ein Benutzer gibt seinen Namen und sein Geburtsjahr ein. Das Programm berechnet sein Alter im Jahr 2026 und gibt anschließend den Namen und das berechnete Alter aus.</p></div>
+<div class="task"><h3>Übung 5.2 – Auswahl modellieren</h3><p>Ein Benutzer gibt sein Alter ein. Ist er mindestens 18 Jahre alt, erscheint die Meldung „Volljährig“. Andernfalls wird „Minderjährig“ ausgegeben.</p><p>Erstelle ein Struktogramm mit einer bedingten Verzweigung.</p></div>
+<div class="task"><h3>Übung 5.3 – Vom Struktogramm zum Programm</h3><p>Übertrage dein Struktogramm aus Übung 5.2 in ausführbaren Python-Code. Prüfe das Programm mit den Eingaben <code>16</code>, <code>18</code> und <code>21</code>.</p></div></section>
+<section id="verzweigungen"><h2>6. Bedingte Verzweigungen</h2><p class="mini">Kurz erklärt</p><p>Mit <code>if</code>, <code>elif</code> und <code>else</code> entscheidet ein Programm, welche Anweisungen ausgeführt werden.</p><pre><code>punkte = 75
+
+if punkte >= 90:
+    print("Sehr gut")
+elif punkte >= 50:
+    print("Bestanden")
+else:
+    print("Nicht bestanden")</code></pre><p>Python prüft die Bedingungen nacheinander. Sobald eine Bedingung zutrifft, wird der zugehörige Block ausgeführt. Die übrigen Zweige werden übersprungen.</p><p><strong>Wichtige Vergleichsoperatoren:</strong></p><table><thead><tr><th>Operator</th><th>Bedeutung</th></tr></thead><tbody><tr><td><code>==</code></td><td>gleich</td></tr><tr><td><code>!=</code></td><td>ungleich</td></tr><tr><td><code>&lt;</code> / <code>&gt;</code></td><td>kleiner / größer</td></tr><tr><td><code>&lt;=</code> / <code>&gt;=</code></td><td>kleiner oder gleich / größer oder gleich</td></tr></tbody></table><p>Mehrere Bedingungen lassen sich mit <code>and</code>, <code>or</code> und <code>not</code> verknüpfen.</p>
+<div class="task"><h3>Übung 6.1 – Programmausgabe vorhersagen</h3><p>Betrachte das folgende Programm:</p><pre><code>temperatur = 18
+
+if temperatur > 25:
+    print("Es ist warm.")
+elif temperatur >= 15:
+    print("Es ist angenehm.")
+else:
+    print("Es ist kalt.")</code></pre><p>Welche Ausgabe erzeugt das Programm für die Werte <code>18</code>, <code>25</code>, <code>26</code> und <code>10</code>?</p></div>
+<div class="task"><h3>Übung 6.2 – Eintrittspreise berechnen</h3><p>Ein Freizeitpark verlangt folgende Eintrittspreise:</p><table><thead><tr><th>Alter</th><th>Eintrittspreis</th></tr></thead><tbody><tr><td>Unter 6 Jahren</td><td>kostenlos</td></tr><tr><td>6 bis 17 Jahre</td><td>8 €</td></tr><tr><td>Ab 18 Jahren</td><td>15 €</td></tr></tbody></table><p>Schreibe ein Programm, das das Alter des Besuchers abfragt und den entsprechenden Eintrittspreis ausgibt.</p></div>
+<div class="task"><h3>Übung 6.3 – Bedingungen verknüpfen</h3><p>Ein Onlineshop bietet kostenlosen Versand an, wenn der Bestellwert mindestens 50 € beträgt <strong>oder</strong> der Kunde ein Premiumkunde ist.</p><p>Schreibe ein Programm mit zwei Variablen:</p><pre><code>bestellwert = 35
+premiumkunde = True</code></pre><p>Prüfe mit einer bedingten Verzweigung, ob der Versand kostenlos ist. Gib eine entsprechende Meldung aus. Teste auch andere Kombinationen aus Bestellwert und Premiumstatus.</p></div></section>
+<section id="listen"><h2>7. Listen</h2><p class="mini">Kurz erklärt</p><p>Eine Liste speichert mehrere Werte unter einem gemeinsamen Variablennamen.</p><pre><code>namen = ["Anna", "Ben", "Chris"]</code></pre><p>Die Elemente werden über ihren Index angesprochen. <strong>Der erste Index ist immer 0.</strong></p><pre><code>print(namen[0])      # Anna
+
+namen[1] = "Lisa"    # Element ersetzen
+namen.append("Tom")  # Element anhängen
+namen.remove("Anna") # Wert entfernen</code></pre><p>Weitere wichtige Befehle sind <code>insert()</code> zum Einfügen, <code>pop()</code> zum Entfernen über einen Index und <code>clear()</code> zum vollständigen Leeren.</p><p>Mit einem negativen Index kann vom Ende der Liste zugegriffen werden:</p><pre><code>print(namen[-1])    # letztes Element</code></pre>
+<div class="task"><h3>Übung 7.1 – Listen lesen und verändern</h3><p>Betrachte den folgenden Programmcode:</p><pre><code>zahlen = [5, 10, 15, 20]
+
+zahlen[1] = 12
+zahlen.append(25)
+zahlen.pop(0)
+
+print(zahlen)
+print(zahlen[-1])</code></pre><p>Notiere die beiden Ausgaben, ohne den Code auszuführen.</p></div>
+<div class="task"><h3>Übung 7.2 – Einkaufsliste verwalten</h3><p>Erstelle eine Liste mit den folgenden Produkten:</p><pre><code>einkauf = ["Milch", "Brot", "Käse"]</code></pre><p>Erweitere dein Programm so, dass es nacheinander:</p><ol><li><code>"Butter"</code> am Ende ergänzt.</li><li><code>"Brot"</code> durch <code>"Brötchen"</code> ersetzt.</li><li><code>"Käse"</code> entfernt.</li></ol><p>Gib die Liste nach jeder Veränderung aus.</p></div>
+<div class="task"><h3>Übung 7.3 – Mit Listen rechnen</h3><p>Eine Klasse hat in einer Klausur die folgenden Punktzahlen erreicht:</p><pre><code>punkte = [12, 8, 15, 10, 6]</code></pre><p>Schreibe ein Programm, das die ersten drei Werte addiert und daraus deren Durchschnitt berechnet. Gib den Durchschnitt mit einem f-String aus.</p></div></section>
+<section id="turtle"><h2>8. Zeichnen mit Turtle</h2><p class="mini">Kurz erklärt</p><p>Mit dem Python-Modul <code>turtle</code> können grafische Figuren gezeichnet werden. Eine Turtle bewegt sich über die Zeichenfläche. Solange ihr Stift abgesenkt ist, hinterlässt sie eine Linie.</p><pre><code>import turtle
+
+t = turtle.Turtle()
+
+t.forward(100)
+t.right(90)
+t.forward(100)
+
+turtle.done()</code></pre><p>Einige wichtige Befehle:</p><table><thead><tr><th>Befehl</th><th>Bedeutung</th></tr></thead><tbody><tr><td><code>t.forward(100)</code></td><td>100 Pixel vorwärts</td></tr><tr><td><code>t.backward(50)</code></td><td>50 Pixel rückwärts</td></tr><tr><td><code>t.right(90)</code></td><td>90° nach rechts</td></tr><tr><td><code>t.left(90)</code></td><td>90° nach links</td></tr><tr><td><code>t.penup()</code></td><td>Stift anheben</td></tr><tr><td><code>t.pendown()</code></td><td>Stift absenken</td></tr><tr><td><code>t.pencolor("red")</code></td><td>Linienfarbe ändern</td></tr><tr><td><code>t.fillcolor("blue")</code></td><td>Füllfarbe festlegen</td></tr><tr><td><code>t.begin_fill()</code></td><td>Füllung beginnen</td></tr><tr><td><code>t.end_fill()</code></td><td>Füllung abschließen</td></tr><tr><td><code>t.circle(50)</code></td><td>Kreis mit Radius 50 zeichnen</td></tr></tbody></table>
+<div class="task"><h3>Übung 8.1 – Zeichnung vorhersagen</h3><p>Welche Figur entsteht durch folgenden Code?</p><pre><code>import turtle
+
+t = turtle.Turtle()
+
+t.forward(100)
+t.left(120)
+t.forward(100)
+t.left(120)
+t.forward(100)
+
+turtle.done()</code></pre><p>Skizziere die Figur zunächst auf Papier. Führe anschließend das Programm aus und überprüfe deine Vermutung.</p></div>
+<div class="task"><h3>Übung 8.2 – Ein farbiges Quadrat</h3><p>Schreibe ein Turtle-Programm, das ein Quadrat mit einer Seitenlänge von 150 Pixeln zeichnet.</p><p>Das Quadrat soll:</p><ul><li>eine blaue Umrandung besitzen,</li><li>mit gelber Farbe gefüllt sein,</li><li>eine Linienstärke von 4 Pixeln haben.</li></ul><p>Verwende dafür unter anderem <code>pensize()</code>, <code>pencolor()</code>, <code>fillcolor()</code>, <code>begin_fill()</code> und <code>end_fill()</code>.</p></div>
+<div class="task"><h3>Übung 8.3 – Ein einfaches Haus zeichnen</h3><svg class="house" viewBox="0 0 320 240" role="img" aria-label="Skizze eines Hauses mit Dach, Fenstern und Tür" xmlns="http://www.w3.org/2000/svg"><path d="M85 105 L160 30 L235 105 Z" fill="#E9A65C" stroke="#9D5426" stroke-width="3" stroke-linejoin="round"/><rect x="85" y="105" width="150" height="115" fill="#F2DFAC" stroke="#9D5426" stroke-width="3"/><rect x="143" y="155" width="34" height="65" fill="#90613B" stroke="#684323" stroke-width="2"/><circle cx="169" cy="190" r="2.5" fill="#F2DFAC"/><rect x="100" y="127" width="27" height="26" fill="#9ACDE7" stroke="#684323" stroke-width="2"/><path d="M113.5 127 V153 M100 140 H127" stroke="#684323" stroke-width="1.5"/><rect x="193" y="127" width="27" height="26" fill="#9ACDE7" stroke="#684323" stroke-width="2"/><path d="M206.5 127 V153 M193 140 H220" stroke="#684323" stroke-width="1.5"/></svg><p>Zeichne mit Turtle ein einfaches Haus, das mindestens aus folgenden Elementen besteht:</p><ul><li>einem quadratischen Hauskörper,</li><li>einem dreieckigen Dach,</li><li>einer rechteckigen Tür.</li></ul><p>Verwende unterschiedliche Farben und mindestens einmal <code>penup()</code> und <code>pendown()</code>, damit nicht alle Formen durch Linien miteinander verbunden sind.</p><p><strong>Zusatzherausforderung:</strong> Ergänze zwei Fenster und färbe das Dach rot.</p></div></section>
+<section id="transfer"><h2>Abschließende Transferaufgabe: Der Ticketautomat</h2><p>In dieser Aufgabe kombinierst du die verschiedenen Grundlagen.</p><p>Ein kleiner Ticketautomat soll Eintrittskarten verkaufen.</p><p><strong>Ausgangssituation:</strong> Ein normales Ticket kostet 12 €. Für Kinder unter 12 Jahren kostet ein Ticket 6 €.</p><p>Programmiere einen Ticketautomaten, der folgende Anforderungen erfüllt:</p><ol><li>Der Benutzer gibt seinen Namen und sein Alter ein.</li><li>Das Programm ermittelt anhand des Alters den Ticketpreis.</li><li>Der Benutzer gibt ein, wie viele Tickets er kaufen möchte.</li><li>Das Programm berechnet den Gesamtpreis.</li><li>Name, Einzelpreis, Anzahl und Gesamtpreis werden übersichtlich mit f-Strings ausgegeben.</li><li>Die verkauften Ticketpreise werden in einer Liste gespeichert.</li></ol><p>Erstelle <strong>zunächst ein Struktogramm</strong> für den Programmablauf und setze es anschließend in Python um.</p></section>
+<section id="kontrolle"><h2>Selbstkontrolle</h2><p>Wenn du das Tutorium abgeschlossen hast, solltest du in der Lage sein, …</p><ul class="checklist"><li><label><input type="checkbox">Variablen anzulegen, zu verändern und Berechnungen durchzuführen.</label></li><li><label><input type="checkbox">Ausgaben mit <code>print()</code> und f-Strings zu gestalten.</label></li><li><label><input type="checkbox">Datentypen zu unterscheiden und Werte umzuwandeln.</label></li><li><label><input type="checkbox">Benutzereingaben entgegenzunehmen und weiterzuverarbeiten.</label></li><li><label><input type="checkbox">einfache Programmabläufe als Struktogramm darzustellen.</label></li><li><label><input type="checkbox">Bedingungen mit <code>if</code>, <code>elif</code>, <code>else</code> und logischen Operatoren zu formulieren.</label></li><li><label><input type="checkbox">Listen zu erstellen, auszulesen und zu verändern.</label></li><li><label><input type="checkbox">einfache geometrische Figuren mit Turtle zu zeichnen.</label></li></ul><p id="progress" class="meta" aria-live="polite">0 von 8 Lernzielen abgehakt.</p></section>
+<p class="printnote">Hinweis: Das Dokument kann über die Druckfunktion des Browsers auch als PDF gespeichert werden.</p>
+</main>
+<script>
+const boxes=[...document.querySelectorAll('.checklist input')];
+const progress=document.getElementById('progress');
+boxes.forEach(box=>box.addEventListener('change',()=>{progress.textContent=`${boxes.filter(item=>item.checked).length} von ${boxes.length} Lernzielen abgehakt.`;}));
+</script>
+</body>
+</html>
